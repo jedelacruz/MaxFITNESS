@@ -1,0 +1,750 @@
+/* === Base Styles === */
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: #f4f4f4;
+  color: #333;
+  font-size: 16px; /* Base font size for rem units */
+}
+
+nav {
+  background-color: white;
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo a {
+  color: #002855;
+  text-decoration: none;
+  font-size: 1.5rem; /* 24px / 16px */
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #002855;
+  text-decoration: none;
+  padding: 8px 15px;
+  font-weight: bold;
+  transition: 0.5s ease;
+  font-size: 1rem;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+  color: #e53945;
+  border-radius: 4px;
+}
+
+/* Style for the Portal button in the navbar */
+nav ul li a.portal-button {
+  background-color: #e53945; /* Red background */
+  color: white;             /* White text */
+  padding: 8px 15px;        /* Match other nav links padding */
+  border-radius: 6px;       /* Rounded corners */
+  font-weight: bold;
+  text-decoration: none;
+  border: none;             /* Remove any default border */
+}
+
+nav ul li a.portal-button:hover {
+  background-color: #d4303c; /* Darker red on hover */
+  color: white;             /* Keep text white */
+  border-radius: 6px;       /* Maintain border-radius on hover */
+}
+
+/* Styles for User Greeting and Logout Button group */
+nav ul li.user-actions {
+  display: flex;
+  align-items: center;
+  /* margin for li.user-actions is inherited from 'nav ul li': margin: 0 15px; */
+}
+
+nav ul li.user-actions .user-greeting-text {
+  color: #002855;
+  font-weight: bold;
+  padding: 8px 5px 8px 0; /* 8px top/bottom for vertical alignment, 5px right for spacing, 0 left */
+}
+
+/* The existing 'nav ul li a.logout-button' provides base styling (background, color, padding etc.).
+   Add specific margin-left when inside user-actions for spacing from the greeting text. */
+nav ul li.user-actions a.logout-button {
+  margin-left: 5px; 
+}
+
+/* Styles for User Greeting and Logout Button */
+/* nav ul li.user-greeting { */
+/*  color: #002855; /* Match other nav text color */
+/*  font-weight: bold; */
+/*  padding: 8px 15px; */
+/*  display: flex; /* Align with other nav items */
+/*  align-items: center; /* Vertically center */
+/* } */
+
+nav ul li a.logout-button {
+  background-color: #e53945; /* Red background */
+  color: white !important;             /* White text, !important to override general link color if needed */
+  padding: 8px 15px;        /* Match other nav links padding */
+  border-radius: 6px;       /* Rounded corners */
+  font-weight: bold;
+  text-decoration: none;
+  border: none;             /* Remove any default border */
+}
+
+nav ul li a.logout-button:hover {
+  background-color: #d4303c; /* Darker red on hover */
+  color: white !important;      /* Keep text white */
+}
+
+/* Hamburger Menu Icon */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle .bar {
+  height: 3px;
+  width: 25px;
+  background-color: black;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+/* Media Query for Mobile/Tablet */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    background-color: white;
+    padding: 10px;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  nav ul li {
+    text-align: center;
+    margin: 0;
+  }
+
+  nav ul li a {
+    padding: 15px;
+    display: block;
+    width: 100%;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+/* === Page Headers === */
+.home-page-header{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 15rem 20px;
+  background-image: linear-gradient(rgba(21, 41, 66, 0.7), rgba(21, 41, 66, 0.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+}
+
+.home-page-header h1 {
+  color: #ffffff;
+  font-size: 3.75rem; /* 60px / 16px */
+  line-height: 1.2; /* Adjusted for better spacing */
+}
+
+.home-page-header p {
+  color: #ffffff;
+  font-size: 1.25rem; /* 20px / 16px */
+  line-height: 1.5;
+}
+
+.home-page-header div {
+  display: flex;
+  gap: 20px;
+}
+
+.home-page-header div a{
+  font-size: 1.125rem; /* 18px / 16px */
+  padding: 10px 30px;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.home-page-header div a:nth-child(1) {
+  color: white;
+  background-color: #e53945;
+  border: 2px solid #e53945;
+}
+
+.home-page-header div a:nth-child(2) {
+  color: white;
+  border: 2px solid white;
+}
+
+.page-header,
+.order-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15rem 20px;
+  background-image: linear-gradient(rgba(21, 41, 66, 0.7), rgba(21, 41, 66, 0.7)), url('https://images.unsplash.com/photo-1637666062717-1c6bcfa4a4df?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  text-align: center;
+  /* The original height: 20vh; and background: #002855; are effectively replaced */
+}
+
+.page-header h1,
+.order-header h1 {
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+}
+
+.page-header p,
+.order-header p {
+  font-size: 1.2rem;
+}
+
+/* === Product Cards === */
+.products {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0px 20px;
+}
+
+.section-description {
+  font-size: 1.1rem;
+  margin: 5px 0px;
+  color: #555;
+}
+
+.product-grid {
+  margin: 3rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 1rem; /* Base for elements inside card */
+}
+
+.product-card h3 {
+  margin-bottom: 10px;
+  color: #002855;
+  font-size: 1.5rem;
+}
+
+.order-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 16px;
+  background-color: #e53945;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+  font-size: 1rem;
+}
+
+.order-btn:hover {
+  background-color: #d4303c;
+}
+
+/* === Order Pages Specific === */
+.order-main {
+  max-width: 960px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.order-main ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-top: 20px;
+}
+
+.order-main li {
+  margin-bottom: 12px;
+  font-size: 1.05rem; /* Slightly larger for list items if desired */
+}
+
+/* Back Button on Order Pages */
+.back-link {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 10px 18px;
+  background-color: #00509e;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  font-size: 1rem;
+}
+
+.back-link:hover {
+  background-color: #003f7f;
+}
+
+/* === Footer === */
+footer {
+  background-color: #1a2533; /* Dark blue from image */
+  color: #a9b3c1; /* Light greyish-blue text color from image */
+  padding: 3rem 1.25rem 1rem; /* Top padding, L/R padding, Bottom padding */
+  font-size: 0.9rem;
+  border-top: 4px solid #e53945; /* Red top border */
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem; /* Gap between columns */
+  max-width: 1200px;
+  margin: 0 auto 2rem auto; /* Center container and add bottom margin before hr */
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 220px; /* Minimum width for columns before wrapping */
+  margin-bottom: 1.5rem;
+}
+
+.footer-column h4 {
+  color: #ffffff; /* White headings */
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo {
+  height: 24px; /* Adjust as needed */
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+.footer-column p {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column ul li a {
+  color: #a9b3c1; /* Light greyish-blue text color */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #ffffff; /* White on hover */
+  text-decoration: underline;
+}
+
+.social-icons a {
+  color: #ffffff; /* Was #a9b3c1 - now white */
+  margin-right: 1rem;
+  font-size: 1.2rem; /* Adjust if using icon fonts */
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  color: #e0e0e0; /* Slightly dimmed white on hover */
+}
+
+.contact-us-footer p {
+  display: flex;
+  align-items: center;
+  /* For red icons as in image, wrap your icon/placeholder in a span, e.g., <span class="footer-icon">[Address]</span> */
+  /* Then add: .footer-icon { color: #e53945; margin-right: 0.5em; } */
+}
+
+.footer-icon {
+  color: #e53945; /* Red icon color */
+  margin-right: 0.5em; /* Space between icon and text */
+}
+
+/* If using text placeholders for icons, they might need slight alignment adjustments */
+/* Example for text icons if not using font library:
+.contact-us-footer p::before {
+  content: attr(data-icon); You would add data-icon="🏠" to the p tag
+  margin-right: 0.5em;
+  color: #e53945; Red icon color from image
+}
+*/
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 1.5rem;
+  font-size: 0.85rem;
+  color: #ffffff; /* Was inheriting #a9b3c1 */
+}
+
+.footer-bottom hr {
+  border: 0;
+  height: 1px;
+  background-color: #344050; /* Darker line color */
+  margin-bottom: 1.5rem;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center; /* Center columns on smaller screens */
+    /* text-align: center; Applied by default from .footer-column or individually */
+  }
+  .footer-column {
+    min-width: 100%; /* Full width for columns */
+    margin-bottom: 2rem;
+    text-align: center; /* Default center align for columns */
+  }
+  .footer-column.about-us h4 {
+    color: #e53945; /* Red for MAXFITNESS text */
+    justify-content: center; /* Center h4 content (if it's flex) */
+  }
+  .footer-column.quick-links-footer,
+  .footer-column.exercises-footer,
+  .footer-column.contact-us-footer {
+    text-align: left;
+  }
+
+  .social-icons {
+    justify-content: center; /* Keep social icons centered */
+    display: flex;
+  }
+  .contact-us-footer p {
+    justify-content: flex-start; /* Left-align items in contact <p> (icon + text) */
+  }
+}
+
+/* === Business Header Section === */
+.business-header {
+  background-color: #ffffff;
+  text-align: center;
+  padding: 30px 20px;
+  border-bottom: 2px solid #002855;
+}
+
+.business-header .header-logo {
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.business-header .business-info h1 {
+  font-size: 2.2rem;
+  color: #002855;
+  margin: 10px 0 5px;
+}
+
+.business-header .business-info p {
+  font-size: 1.1rem;
+  color: #002855;
+}
+
+/* === Exclusive Homepage Info === */
+.exclusive-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 40px 20px;
+}
+
+.info-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 40, 85, 0.15);
+  font-size: 1rem; /* Base for elements inside card */
+}
+
+.info-card h2 {
+  color: #002855;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.info-card p {
+  color: #002855;
+  font-size: 0.95rem;
+}
+
+.info-card a {
+  color: #e53945;
+  text-decoration: underline;
+}
+
+/* === Exclusive Homepage Deal === */
+.exclusive-deal {
+  background: #e53945; /* Red background color from image */
+  text-align: center;
+  padding: 5rem 20px; /* Increased padding */
+  color: #ffffff; /* White text color */
+  margin: 3rem 0;
+}
+
+.exclusive-deal h2 {
+  font-size: 2.25rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.exclusive-deal p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  max-width: 600px; /* Limit width of paragraph for better readability */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.exclusive-deal .cta-button {
+  background-color: #ffffff; /* White background for button */
+  color: #e53945; /* Red text color for button */
+  padding: 15px 35px; /* Adjusted padding */
+  border-radius: 5px; /* Slightly rounded corners */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.exclusive-deal .cta-button:hover {
+  background-color: #f0f0f0; /* Lighter shade on hover */
+  color: #d4303c; /* Darker red on hover */
+}
+
+/* === Testimonials Section === */
+.testimonials {
+  background: #f8f9fa; /* Light grey background for the section */
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 2.25rem; /* Standardized section title */
+  color: #002855; /* Dark blue color for the heading */
+  margin-bottom: 40px; /* Increased margin for better spacing */
+  font-weight: bold;
+}
+
+.testimonial-container {
+  max-width: 1100px; /* Max width for the container */
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 30px; /* Gap between cards */
+}
+
+.testimonial-card {
+  background-color: #ffffff; /* White background for cards */
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  text-align: left; /* Align text to the left within cards */
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem; /* Base for elements inside card */
+}
+
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.testimonial-header img {
+  width: 60px; /* Size of the member image */
+  height: 60px;
+  border-radius: 50%; /* Circular images */
+  margin-right: 15px;
+  object-fit: cover; /* Ensure images cover the area without distortion */
+}
+
+.testimonial-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #002855;
+  font-weight: bold;
+}
+
+.testimonial-header p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #002855;
+}
+
+.testimonial-quote {
+  font-size: 1rem;
+  color: #002855;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-style: normal; /* Removing italic style from original .testimonial */
+}
+
+.testimonial-rating {
+  margin-top: auto; /* Pushes rating to the bottom */
+}
+
+.testimonial-rating span {
+  font-size: 1.3rem;
+  color: #f0ad4e; /* Yellow color for stars */
+  margin-right: 2px;
+}
+
+/* === Business Highlights Section === */
+.highlights {
+  background-color: #f9fbfd;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.highlights h2 {
+  font-size: 2.25rem; /* Standardized section title */
+  color: #002855;
+  margin-bottom: 30px;
+}
+
+.highlight-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.highlight-box {
+  background-color: #fff;
+  padding: 25px;
+  width: 200px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 40, 85, 0.1);
+  font-size: 1rem; /* Base for elements inside */
+}
+
+.highlight-box h3 {
+  color: #e53945;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.highlight-box p {
+  font-size: 1rem;
+  color: #002855;
+}
+
+/* === Quick Links Section === */
+.quick-links {
+  background: #e53945; /* Copied from exclusive-deal */
+  text-align: center;
+  padding: 5rem 20px; /* Copied from exclusive-deal */
+  color: #ffffff; /* Copied from exclusive-deal */
+  margin: 3rem 0; /* Copied from exclusive-deal */
+}
+
+.quick-links h2 {
+  font-size: 2.25rem; /* Standardized section title */
+  margin-bottom: 30px; /* Adjusted for button group spacing, was 15px in exclusive-deal */
+  font-weight: bold; /* Copied from exclusive-deal h2 */
+}
+
+.quick-links .button-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Adjusted gap for multiple buttons */
+  flex-wrap: wrap;
+}
+
+.quick-links .button-group .btn {
+  background-color: #ffffff; /* Copied from exclusive-deal .cta-button */
+  color: #e53945; /* Copied from exclusive-deal .cta-button */
+  padding: 15px 35px; /* Copied from exclusive-deal .cta-button */
+  border-radius: 5px; /* Copied from exclusive-deal .cta-button */
+  text-decoration: none;
+  font-weight: bold; /* Copied from exclusive-deal .cta-button */
+  font-size: 1.1rem; /* Copied from exclusive-deal .cta-button */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Copied from exclusive-deal .cta-button */
+  margin: 5px; /* Add some margin for wrapping buttons */
+}
+
+.quick-links .button-group .btn:hover {
+  background-color: #f0f0f0; /* Copied from exclusive-deal .cta-button:hover */
+  color: #d4303c; /* Copied from exclusive-deal .cta-button:hover */
+}
+
+/* === CTA Button (General - if still needed elsewhere, otherwise can be removed if exclusive-deal was the only user) === */
+.cta-button {
+  display: inline-block;
+  background-color: #e53945;
+  color: #fff;
+  padding: 12px 24px;
+  margin: 15px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  font-size: 1.1rem; /* Standardized cta button */
+}
+
+.cta-button:hover {
+  background-color: #d4303c;
+}
+
+.business-highlights {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+
+
+

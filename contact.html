@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - MAXFITNESS</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Base Body Styles */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa; /* Light gray background for the whole page */
+    }
+
+    /* Original page header style */
+    .page-header {
+      background-image: linear-gradient(rgba(21, 41, 66, 0.7), rgba(21, 41, 66, 0.7)), url('https://images.unsplash.com/photo-1571731956672-f2b94d7dd0cb?q=80&w=1472&auto-format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+      /* Other .page-header styles like padding, color, text-align are expected from style.css */
+    }
+    
+    /* Contact Page Specific Sections */
+    .contact-main-section {
+      padding: 40px 20px;
+      background-color: #fff;
+      max-width: 1200px;
+      margin: 30px auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .contact-flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .get-in-touch-column {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .section-title-L { /* Large title, e.g., Get in Touch */
+      font-size: 2.5rem;
+      color: #002855;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    
+    .section-title-M { /* Medium title, e.g., Send us a message */
+      font-size: 1.8rem;
+      color: #002855;
+      margin-bottom: 25px;
+      font-weight: 600;
+    }
+
+    .section-title-S { /* Small title, e.g., Operating Hours */
+        font-size: 1.5rem;
+        color: #002855;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+    
+    .section-intro-text {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .contact-details-group {
+      margin-bottom: 25px;
+    }
+
+    .contact-detail-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .contact-detail-icon {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-color: #002855;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      font-size: 1.2rem;
+      margin-right: 15px;
+    }
+
+    .contact-detail-text h4 {
+      font-size: 1.1rem;
+      color: #002855;
+      margin: 0 0 5px 0;
+      font-weight: 600;
+    }
+
+    .contact-detail-text p {
+      font-size: 0.95rem;
+      color: #333;
+      margin: 0;
+    }
+
+    .operating-hours-content {
+      font-size: 0.95rem;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    .operating-hours-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .operating-hours-time {
+      font-weight: 600;
+    }
+
+    .send-message-column {
+      flex: 1;
+      min-width: 300px;
+      background-color: #f8f9fa;
+      padding: 30px;
+      border-radius: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group-large-margin { /* For last form group before button */
+        margin-bottom: 25px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.9rem;
+      color: #333;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    .form-select {
+      background-color: white;
+    }
+
+    .form-textarea {
+      resize: vertical;
+    }
+
+    .form-submit-button {
+      background-color: #e53945;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .form-submit-button:hover {
+        background-color: #d4303c; /* Darker red on hover */
+    }
+
+    /* Find Us Section */
+    .find-us-section {
+      padding: 50px 20px;
+      background-color: #f0f2f5;
+      text-align: center;
+    }
+
+    .find-us-title { /* Using common .section-title-L */
+      font-size: 2.5rem;
+      color: #002855;
+      margin-bottom: 30px;
+      font-weight: 600;
+    }
+
+    .map-container-wrapper { /* Wrapper for centering map container */
+      max-width: 900px;
+      margin: 0 auto;      
+    }
+    .map-container {
+      background-color: #e9ecef; /* Light grey for map placeholder area */
+      padding: 20px; /* Padding around the iframe */
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      /* color & font-size for placeholder text removed as iframe is primary content */
+    }
+
+    .map-iframe {
+      border: 0;
+      border-radius: 8px; /* Match container's border radius */
+      width: 100%;
+      height: 400px;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      padding: 50px 20px;
+      max-width: 900px;
+      margin: 30px auto;
+    }
+
+    .faq-main-title { /* Using common .section-title-L */
+      font-size: 2.5rem;
+      color: #002855;
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .faq-item {
+      background-color: #fff;
+      margin-bottom: 10px;
+      padding: 15px;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+    }
+    .faq-question {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #002855;
+    }
+    .faq-answer {
+      padding-left: 0;
+      color: #333;
+      line-height: 1.6;
+    }
+    .faq-answer p { /* Add margin to paragraphs inside faq-answer if not already there */
+        margin-top: 0; 
+    }
+
+
+    /* Footer */
+    .main-footer {
+      background-color: #1a2533;
+      color: #a9b3c1;
+      padding: 2rem 1.25rem;
+      text-align: center;
+      border-top: 4px solid #e53945;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="login.html" class="portal-button">Portal</a></li>
+    </ul>
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <h1>Contact MAXFITNESS</h1>
+    <p>We're here to help and guide your fitness journey!</p>
+  </header>
+
+  <section class="contact-main-section">
+    <div class="contact-flex-container">
+
+      <div class="get-in-touch-column">
+        <h2 class="section-title-L">Get in Touch</h2>
+        <p class="section-intro-text">
+          We're always happy to hear from our customers. Feel free to reach out to us with any questions, feedback, or inquiries about our gym, products, or services.
+        </p>
+
+        <div class="contact-details-group">
+          <div class="contact-detail-item">
+            <span class="contact-detail-icon">&#x1F4CD;</span>
+            <div class="contact-detail-text">
+              <h4>Our Location</h4>
+              <p>123 Fitness Street, Muscle City, MC 12345</p>
+            </div>
+          </div>
+          <div class="contact-detail-item">
+            <span class="contact-detail-icon">&#x260E;</span>
+            <div class="contact-detail-text">
+              <h4>Phone Number</h4>
+              <p>(123) 456-7890</p>
+            </div>
+          </div>
+          <div class="contact-detail-item">
+            <span class="contact-detail-icon">&#x2709;</span>
+            <div class="contact-detail-text">
+              <h4>Email Address</h4>
+              <p>info@powerhousegym.com</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="section-title-S">Operating Hours</h3>
+          <div class="operating-hours-content">
+            <div class="operating-hours-row"><span>Monday - Friday</span> <span class="operating-hours-time">5:00 AM - 11:00 PM</span></div>
+            <div class="operating-hours-row"><span>Saturday</span> <span class="operating-hours-time">6:00 AM - 10:00 PM</span></div>
+            <div class="operating-hours-row"><span>Sunday</span> <span class="operating-hours-time">7:00 AM - 8:00 PM</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="send-message-column">
+        <h2 class="section-title-M">Send Us a Message</h2>
+        <form action="submit_contact.php" method="POST">
+          <div class="form-group">
+            <label for="name" class="form-label">Your Name *</label>
+            <input type="text" id="name" name="name" required class="form-input">
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email Address *</label>
+            <input type="email" id="email" name="email" required class="form-input">
+          </div>
+          <div class="form-group">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" id="phone" name="phone" class="form-input">
+          </div>
+          <div class="form-group">
+            <label for="subject" class="form-label">Subject *</label>
+            <select id="subject" name="subject" required class="form-select">
+              <option value="" disabled selected>Select a subject</option>
+              <option value="general_inquiry">General Inquiry</option>
+              <option value="membership">Membership</option>
+              <option value="feedback">Feedback</option>
+              <option value="billing">Billing</option>
+            </select>
+          </div>
+          <div class="form-group-large-margin">
+            <label for="message" class="form-label">Your Message *</label>
+            <textarea id="message" name="message" rows="5" required class="form-textarea"></textarea>
+          </div>
+          <button type="submit" class="form-submit-button">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="find-us-section">
+    <h2 class="find-us-title">Find Us</h2>
+    <div class="map-container-wrapper">
+        <div class="map-container">
+            <iframe class="map-iframe" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1930.295265593636!2d121.041885!3d14.426188!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397cfc4f8adfa27%3A0xb4f25c5f1dcbcd1!2sPamantasan%20ng%20Lungsod%20ng%20Muntinlupa!5e0!3m2!1sen!2sph!4v1715831046804!5m2!1sen!2sph" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <h2 class="faq-main-title">Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-question">What are your gym hours?</div>
+      <div class="faq-answer">
+        <p>Our facility is open Monday through Friday from 5:00 AM to 11:00 PM, Saturdays from 6:00 AM to 10:00 PM, and Sundays from 7:00 AM to 8:00 PM.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Do you offer membership trials?</div>
+      <div class="faq-answer">
+        <p>Yes, we offer a 7-day free trial for all new members. You can sign up for your free trial through our website or by visiting our facility.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">What's included in a membership?</div>
+      <div class="faq-answer">
+        <p>Our basic membership includes full access to the gym, all equipment, and free group classes. Premium memberships include personal training sessions, access to our recovery facilities, and more.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How do I cancel or modify my order?</div>
+      <div class="faq-answer">
+        <p>If you need to cancel or modify your membership or any service, please contact our customer service team within 24 hours of placing your order or before your next billing cycle. You can reach us by phone or email.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="main-footer">
+    <p>&copy; 2025 MAXFITNESS Gym. All rights reserved.</p>
+    <!-- A more detailed footer can be copied from index.html if needed -->
+  </footer>
+
+<script>
+  // Hamburger menu toggle
+  const mobileMenu = document.getElementById('mobile-menu');
+  const navLinks = document.querySelector('nav ul');
+
+  if (mobileMenu) {
+    mobileMenu.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  }
+
+  // FAQ Accordion JavaScript removed
+</script>
+
+</body>
+</html>

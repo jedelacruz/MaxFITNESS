@@ -1,7 +1,5 @@
 # MaxFitness - Gym & Fitness Web Application
 
-💼 Freelance Project | Commissioned Work
-
 🏋️‍♂️ Your comprehensive solution for managing fitness services and products online.
 
 MaxFitness is a dynamic web application designed to support a gym or fitness center. It enables users to register, browse services, order fitness equipment categorized by muscle groups, and contact the administration. The system also features an administrative interface for managing the site's content and user interactions.
@@ -98,5 +96,3 @@ Contributions are always welcome!
 5.  Open a Pull Request.
 
 --- 
-
-*This README was generated with assistance from Cursor.*
